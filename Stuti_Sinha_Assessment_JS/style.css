@@ -1,0 +1,56 @@
+body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: 'EtihadAltis-Book','arial',sans-serif;
+    font-size: 12px;
+    direction: ltr;
+    text-align: left;
+}
+}  
+ul.nav {
+    padding-left: 0px;
+    background-color: #3D99CE;
+    text-align: center;
+  }
+ul.nav > li {
+    display: inline-block;
+    padding: 10px 20px;
+  }
+ul.nav > li:hover {
+    background-color: #2779BF;
+  }
+ul.nav > li > a {
+    color: white;
+    text-decoration: none;
+  }
+.box{
+    margin:0 auto; 
+    width:70%;
+    padding:20px;
+    background:#f9f9f9;
+    border:2px solid #333;
+    }
+.CountrySelect{
+    margin:0 auto; 
+    width:40%;
+    padding:20px;
+    background:#f9e0e0;
+    border:2px solid #333;
+    }
+    .Passengerinfo{
+        margin:0 auto; 
+        width:40%;
+        padding:20px;
+        background:#f9e0e0;
+        border:2px solid #333;
+        }
+.descriptionbox{
+        margin:0 auto; 
+        width:70%;
+        padding:20px;
+        background:#fdfcfc;
+        border:2px solid rgb(252, 251, 251);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color:#2d759e;
+        }
