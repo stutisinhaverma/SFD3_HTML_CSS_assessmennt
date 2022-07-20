@@ -1,9 +1,6 @@
 console.log('Starting debug');
 function getInputFromTextBox() {
-  /*var input = document.getElementById("age").value;
-  if (input < 18){
-    window.alert("You are not eligible to visit the website.");
-  }*/
+
   var departureCountry = document.getElementById("departurecountry").value;
   var arrivalCountry = document.getElementById("arrivalcountry").value;
   var tripStart = document.getElementById("tripstart").value;
@@ -13,6 +10,9 @@ function getInputFromTextBox() {
   var passenger1Name = document.getElementById("passenger1name").value;
   var passenger2Name = document.getElementById("passenger2name").value;
 
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
   console.log('departureCountry '+departureCountry);
   console.log('departureCountry '+arrivalCountry);
   console.log('tripStart '+tripStart);
@@ -20,6 +20,7 @@ function getInputFromTextBox() {
   console.log('email '+email);
   console.log('passenger1Name '+passenger1Name);
   console.log('passenger2Name '+passenger2Name);
+  console.log('Today '+date);
 
   var ele = document.getElementsByName('exampleRadios');
               
@@ -30,9 +31,16 @@ function getInputFromTextBox() {
 
   if(departureCountry === "" || arrivalCountry === "" || tripStart === "" || tripReturn === "" || email === "" || phone === ""){
     window.alert("Please fill all the mandatory inputs. All mandatory inputs are marked with *");
-  } else if ((passenger1Name != "" && passenger1Name.length >5)||(passenger2Name != "" && passenger2Name.length >5)) {
-    window.alert("The passenger name cannot be more than 5 characters.");
-  } else {
+  } else if ((passenger1Name != "" && passenger1Name.length <5)||(passenger2Name != "" && passenger2Name.length <5)) {
+    window.alert("The passenger should not be less than 5 characters.");
+  } else if (new Date(tripStart).getTime() < new Date(date).getTime()) {
+    window.alert("The departure date cannot be a past date.");
+  } else if ((document.getElementById('roundtrip').checked) && (new Date(tripReturn).getTime() < new Date(date).getTime())) {
+    window.alert("The arrival date cannot be a past date.");
+  } else if ((document.getElementById('roundtrip').checked) && (new Date(tripReturn).getTime() < new Date(tripStart).getTime())) {
+    window.alert("The arrival date cannot be less than departure date.");
+  }
+  else {
     window.alert("Success");
   }
 
